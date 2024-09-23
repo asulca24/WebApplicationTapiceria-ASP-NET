@@ -1,0 +1,57 @@
+﻿@model WebApplicationTapiceria.Models.Venta
+
+@{
+    ViewBag.Title = "CalculoVenta";
+}
+
+<h2>Venta de Muebles</h2>
+
+@using (Html.BeginForm())
+{
+
+    <div class="form-hoizontal">
+        <div class="form-group">
+            @Html.Label("Numero", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.TextBoxFor(model => model.numero, htmlAttributes: new { @class = "form-control col-md-10" })
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Fecha", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.TextBoxFor(model => model.fecha, htmlAttributes: new { @class = "form-control col-md-10" })
+
+        </div>
+        <div class="form-group">
+            @Html.Label("Cliente", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.TextBoxFor(model => model.cliente, htmlAttributes: new { @class = "form-control col-md-10" })
+
+        </div>
+        <div class="form-group">
+            @Html.Label("Mueble", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.TextBoxFor(model => model.mueble, htmlAttributes: new { @class = "form-control col-md-10" })
+
+        </div>
+        <div class="form-group">
+            @Html.Label("Precio", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.TextBoxFor(model => model.precio, htmlAttributes: new { @class = "form-control col-md-10" })
+
+        </div>
+        <div class="form-group">
+            @Html.Label("Descuento", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.TextBox("descuento", ViewBag.descuento as string, htmlAttributes: new { @class = "form-control col-md-10", @readonly = "readonly"})
+
+        </div>
+        <div class="form-group">
+            @Html.Label("Total", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.TextBox("neto", ViewBag.neto as string, htmlAttributes: new { @class = "form-control col-md-10", @readonly = "readonly" })
+        </div>
+        <br />
+        <div class="form-group">
+            @Html.ActionLink("Nuevo", "CalculoVenta", null, new { @class = "btn btn-primary" })
+            <input type="submit" value="Calcular" class="btn-primary" />
+        </div>
+
+    </div>
+
+
+}
+
